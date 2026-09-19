@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content" style="max-width:640px;">
+      <div class="page-header"><div><h1>Settings</h1><p>Appearance and account security.</p></div></div>
+
+      <div class="card mb-16">
+        <h3 class="mb-16">Appearance</h3>
+        <div class="flex-between">
+          <div>
+            <div style="font-weight:600;font-size:0.9rem;">Dark mode</div>
+            <div class="text-sm">Applies across every page and is remembered on this device.</div>
+          </div>
+          <label class="checkbox-row"><input type="checkbox" id="dark-mode-toggle"> Enabled</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="mb-16">Change password</h3>
+        <form id="password-form">
+          <div class="form-group"><label for="old-password">Current password</label><input class="form-control" type="password" id="old-password" required></div>
+          <div class="form-group"><label for="new-password">New password</label><input class="form-control" type="password" id="new-password" required minlength="8"></div>
+          <div class="form-group"><label for="new-password-confirm">Confirm new password</label><input class="form-control" type="password" id="new-password-confirm" required minlength="8"></div>
+          <div class="form-error hidden" id="password-form-error"></div>
+          <button type="submit" class="btn btn-primary" id="password-save-btn">Update password</button>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

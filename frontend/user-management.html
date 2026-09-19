@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Management - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div><h1>User Management</h1><p>Assign roles and manage account status. Admin-only.</p></div>
+        <button class="btn btn-primary" id="add-user-btn">+ New User</button>
+      </div>
+
+      <div class="page-toolbar">
+        <input type="search" class="form-control" id="search-input" placeholder="Search by name or email...">
+        <select class="form-control" id="role-filter" style="max-width:150px;">
+          <option value="">All roles</option>
+          <option value="ADMIN">Admin</option>
+          <option value="MANAGER">Manager</option>
+          <option value="EMPLOYEE">Employee</option>
+        </select>
+        <select class="form-control" id="status-filter" style="max-width:150px;">
+          <option value="">All statuses</option>
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="user-table">
+          <thead><tr>
+            <th class="sortable" data-sort="email">Name / Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th class="sortable" data-sort="date_joined">Joined</th>
+            <th style="text-align:right;">Actions</th>
+          </tr></thead>
+          <tbody id="user-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="modal-overlay" id="user-modal">
+  <div class="modal">
+    <div class="modal-head"><h3 id="user-modal-title">New User</h3><button class="icon-btn" id="user-modal-close">&times;</button></div>
+    <div class="modal-body">
+      <form id="user-form">
+        <div id="create-fields">
+          <div class="form-row">
+            <div class="form-group"><label for="user-first-name">First name</label><input class="form-control" id="user-first-name"></div>
+            <div class="form-group"><label for="user-last-name">Last name</label><input class="form-control" id="user-last-name"></div>
+          </div>
+          <div class="form-group"><label for="user-email">Email</label><input class="form-control" type="email" id="user-email"></div>
+          <div class="form-group"><label for="user-password">Temporary password</label><input class="form-control" type="password" id="user-password"></div>
+        </div>
+        <div class="form-group">
+          <label for="user-role">Role</label>
+          <select class="form-control" id="user-role">
+            <option value="EMPLOYEE">Employee</option>
+            <option value="MANAGER">Manager</option>
+          </select>
+          <div class="form-hint">The Admin role can't be assigned here - it's reserved for pre-configured accounts.</div>
+        </div>
+        <div class="form-group" id="user-active-group">
+          <label class="checkbox-row"><input type="checkbox" id="user-active" checked> Active</label>
+        </div>
+        <div class="form-error hidden" id="user-form-error"></div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="user-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="user-save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/user-management.js"></script>
+</body>
+</html>

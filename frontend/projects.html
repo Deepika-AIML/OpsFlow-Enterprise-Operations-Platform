@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div><h1>Projects</h1><p>Track project status, priority and client association.</p></div>
+        <button class="btn btn-primary hidden" id="add-project-btn">+ New Project</button>
+      </div>
+
+      <div class="page-toolbar">
+        <input type="search" class="form-control" id="search-input" placeholder="Search projects...">
+        <select class="form-control" id="status-filter" style="max-width:160px;">
+          <option value="">All statuses</option>
+          <option value="PLANNED">Planned</option>
+          <option value="IN_PROGRESS">In Progress</option>
+          <option value="ON_HOLD">On Hold</option>
+          <option value="COMPLETED">Completed</option>
+          <option value="CANCELLED">Cancelled</option>
+        </select>
+        <select class="form-control" id="priority-filter" style="max-width:150px;">
+          <option value="">All priorities</option>
+          <option value="LOW">Low</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="HIGH">High</option>
+          <option value="URGENT">Urgent</option>
+        </select>
+        <select class="form-control" id="client-filter" style="max-width:180px;"><option value="">All clients</option></select>
+        <div class="toolbar-spacer"></div>
+        <button class="btn btn-outline btn-sm" id="export-csv-btn">Export CSV</button>
+        <button class="btn btn-outline btn-sm" id="export-xlsx-btn">Export Excel</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="project-table">
+          <thead><tr>
+            <th class="sortable" data-sort="name">Name</th>
+            <th>Client</th>
+            <th class="sortable" data-sort="status">Status</th>
+            <th class="sortable" data-sort="priority">Priority</th>
+            <th class="sortable" data-sort="start_date">Start</th>
+            <th class="sortable" data-sort="end_date">End</th>
+            <th style="text-align:right;">Actions</th>
+          </tr></thead>
+          <tbody id="project-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="modal-overlay" id="project-modal">
+  <div class="modal">
+    <div class="modal-head"><h3 id="project-modal-title">New Project</h3><button class="icon-btn" id="project-modal-close">&times;</button></div>
+    <div class="modal-body">
+      <form id="project-form">
+        <div class="form-group"><label for="project-name">Name</label><input class="form-control" id="project-name" required></div>
+        <div class="form-group"><label for="project-description">Description</label><textarea class="form-control" id="project-description"></textarea></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="project-status">Status</label>
+            <select class="form-control" id="project-status">
+              <option value="PLANNED">Planned</option>
+              <option value="IN_PROGRESS">In Progress</option>
+              <option value="ON_HOLD">On Hold</option>
+              <option value="COMPLETED">Completed</option>
+              <option value="CANCELLED">Cancelled</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project-priority">Priority</label>
+            <select class="form-control" id="project-priority">
+              <option value="LOW">Low</option>
+              <option value="MEDIUM" selected>Medium</option>
+              <option value="HIGH">High</option>
+              <option value="URGENT">Urgent</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label for="project-client">Client</label><select class="form-control" id="project-client"><option value="">No client</option></select></div>
+        <div class="form-row">
+          <div class="form-group"><label for="project-start">Start date</label><input class="form-control" type="date" id="project-start"></div>
+          <div class="form-group"><label for="project-end">End date</label><input class="form-control" type="date" id="project-end"></div>
+        </div>
+        <div class="form-error hidden" id="project-form-error"></div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="project-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="project-save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="js/exportData.js"></script>
+<script src="js/projects.js"></script>
+</body>
+</html>

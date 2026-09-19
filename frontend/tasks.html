@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div><h1>Tasks</h1><p>Assignment, priority, due dates and the review workflow.</p></div>
+        <button class="btn btn-primary hidden" id="add-task-btn">+ New Task</button>
+      </div>
+
+      <div class="page-toolbar">
+        <input type="search" class="form-control" id="search-input" placeholder="Search tasks...">
+        <select class="form-control" id="status-filter" style="max-width:170px;">
+          <option value="">All statuses</option>
+          <option value="DRAFT">Draft</option>
+          <option value="PENDING_REVIEW">Pending Review</option>
+          <option value="CHANGES_REQUESTED">Changes Requested</option>
+          <option value="APPROVED">Approved</option>
+          <option value="REJECTED">Rejected</option>
+        </select>
+        <select class="form-control" id="priority-filter" style="max-width:150px;">
+          <option value="">All priorities</option>
+          <option value="LOW">Low</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="HIGH">High</option>
+          <option value="URGENT">Urgent</option>
+        </select>
+        <select class="form-control" id="project-filter" style="max-width:180px;"><option value="">All projects</option></select>
+        <label class="checkbox-row"><input type="checkbox" id="mine-only"> My tasks only</label>
+        <div class="toolbar-spacer"></div>
+        <button class="btn btn-outline btn-sm" id="export-csv-btn">Export CSV</button>
+        <button class="btn btn-outline btn-sm" id="export-xlsx-btn">Export Excel</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="task-table">
+          <thead><tr>
+            <th class="sortable" data-sort="title">Title</th>
+            <th>Project</th>
+            <th>Assignee</th>
+            <th class="sortable" data-sort="priority">Priority</th>
+            <th class="sortable" data-sort="status">Status</th>
+            <th class="sortable" data-sort="due_date">Due</th>
+            <th style="text-align:right;">Actions</th>
+          </tr></thead>
+          <tbody id="task-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="modal-overlay" id="task-modal">
+  <div class="modal">
+    <div class="modal-head"><h3 id="task-modal-title">New Task</h3><button class="icon-btn" id="task-modal-close">&times;</button></div>
+    <div class="modal-body">
+      <form id="task-form">
+        <div class="form-group"><label for="task-title">Title</label><input class="form-control" id="task-title" required></div>
+        <div class="form-group"><label for="task-description">Description</label><textarea class="form-control" id="task-description"></textarea></div>
+        <div class="form-row">
+          <div class="form-group"><label for="task-project">Project</label><select class="form-control" id="task-project"><option value="">No project</option></select></div>
+          <div class="form-group"><label for="task-assignee">Assignee</label><select class="form-control" id="task-assignee"><option value="">Unassigned</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="task-priority">Priority</label>
+            <select class="form-control" id="task-priority">
+              <option value="LOW">Low</option><option value="MEDIUM" selected>Medium</option>
+              <option value="HIGH">High</option><option value="URGENT">Urgent</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="task-due">Due date</label><input class="form-control" type="date" id="task-due"></div>
+        </div>
+        <div class="form-group">
+          <label for="task-status">Status</label>
+          <select class="form-control" id="task-status">
+            <option value="DRAFT">Draft</option>
+            <option value="PENDING_REVIEW">Pending Review</option>
+            <option value="CHANGES_REQUESTED">Changes Requested</option>
+            <option value="APPROVED">Approved</option>
+            <option value="REJECTED">Rejected</option>
+          </select>
+          <div class="form-hint" id="task-status-hint"></div>
+        </div>
+        <div class="form-error hidden" id="task-form-error"></div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="task-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="task-save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="js/exportData.js"></script>
+<script src="js/tasks.js"></script>
+</body>
+</html>

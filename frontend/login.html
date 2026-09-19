@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-brand"><span class="logo-mark">OF</span><span>OpsFlow</span></div>
+    <h1>Welcome back</h1>
+    <p class="auth-sub">Log in to your operations workspace.</p>
+
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input class="form-control" type="email" id="email" name="email" required autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" required autocomplete="current-password">
+        <div class="form-error hidden" id="form-error"></div>
+      </div>
+      <div class="flex-between mb-16">
+        <span></span>
+        <a href="forgot-password.html" class="text-sm">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="login-submit">Log in</button>
+    </form>
+
+    <p class="auth-foot">Don't have an account? <a href="signup.html">Sign up</a></p>
+
+    <div class="demo-hint">
+      <strong>Local demo accounts</strong> (created automatically on first run):<br>
+      Admin: admin@opsflow.local / Admin@12345<br>
+      Manager: manager@opsflow.local / Manager@12345<br>
+      Employee: employee@opsflow.local / Employee@12345
+    </div>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

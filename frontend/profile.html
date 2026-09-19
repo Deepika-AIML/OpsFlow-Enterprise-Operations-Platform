@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content" style="max-width:640px;">
+      <div class="page-header"><div><h1>Profile</h1><p>Your account details.</p></div></div>
+
+      <div class="card mb-16">
+        <form id="profile-form">
+          <div class="form-row">
+            <div class="form-group"><label for="first-name">First name</label><input class="form-control" id="first-name"></div>
+            <div class="form-group"><label for="last-name">Last name</label><input class="form-control" id="last-name"></div>
+          </div>
+          <div class="form-group"><label>Email</label><input class="form-control" id="profile-email" disabled></div>
+          <div class="form-row">
+            <div class="form-group"><label>Role</label><input class="form-control" id="profile-role" disabled></div>
+            <div class="form-group"><label>Organization</label><input class="form-control" id="profile-org" disabled></div>
+          </div>
+          <div class="form-hint mb-16">Email, role and organization are managed by an administrator and can't be changed here.</div>
+          <div class="form-error hidden" id="profile-form-error"></div>
+          <button type="submit" class="btn btn-primary" id="profile-save-btn">Save changes</button>
+        </form>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

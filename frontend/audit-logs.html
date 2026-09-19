@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Logs - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div><h1>Audit Logs</h1><p>Immutable record of every create, update, delete, role change and login. Admin-only.</p></div>
+      </div>
+
+      <div class="page-toolbar">
+        <input type="search" class="form-control" id="search-input" placeholder="Search by record type or ID...">
+        <select class="form-control" id="action-filter" style="max-width:170px;">
+          <option value="">All actions</option>
+          <option value="CREATE">Create</option>
+          <option value="UPDATE">Update</option>
+          <option value="DELETE">Delete</option>
+          <option value="LOGIN">Login</option>
+          <option value="LOGOUT">Logout</option>
+        </select>
+        <select class="form-control" id="model-filter" style="max-width:170px;">
+          <option value="">All record types</option>
+          <option value="User">User</option>
+          <option value="Organization">Organization</option>
+          <option value="Client">Client</option>
+          <option value="Project">Project</option>
+          <option value="Task">Task</option>
+        </select>
+        <div class="toolbar-spacer"></div>
+        <button class="btn btn-outline btn-sm" id="export-csv-btn">Export CSV</button>
+        <button class="btn btn-outline btn-sm" id="export-xlsx-btn">Export Excel</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="audit-table">
+          <thead><tr>
+            <th class="sortable" data-sort="timestamp">Timestamp</th>
+            <th>Actor</th>
+            <th>Action</th>
+            <th>Record</th>
+            <th>Details</th>
+          </tr></thead>
+          <tbody id="audit-tbody"></tbody>
+        </table>
+      </div>
+      <div class="pagination" id="pagination"></div>
+    </main>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="js/exportData.js"></script>
+<script src="js/audit.js"></script>
+</body>
+</html>

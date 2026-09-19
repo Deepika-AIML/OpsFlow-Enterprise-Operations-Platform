@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clients - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div><h1>Clients</h1><p>Business entities OpsFlow tracks projects and tasks for.</p></div>
+        <button class="btn btn-primary hidden" id="add-client-btn">+ New Client</button>
+      </div>
+
+      <div class="page-toolbar">
+        <input type="search" class="form-control" id="search-input" placeholder="Search by name, email or phone...">
+        <select class="form-control" id="status-filter" style="max-width:160px;">
+          <option value="">All statuses</option>
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+        <div class="toolbar-spacer"></div>
+        <button class="btn btn-outline btn-sm" id="export-csv-btn">Export CSV</button>
+        <button class="btn btn-outline btn-sm" id="export-xlsx-btn">Export Excel</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="client-table">
+          <thead><tr>
+            <th class="sortable" data-sort="name">Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th class="sortable" data-sort="created_at">Created</th>
+            <th>Status</th>
+            <th style="text-align:right;">Actions</th>
+          </tr></thead>
+          <tbody id="client-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="modal-overlay" id="client-modal">
+  <div class="modal">
+    <div class="modal-head"><h3 id="client-modal-title">New Client</h3><button class="icon-btn" id="client-modal-close">&times;</button></div>
+    <div class="modal-body">
+      <form id="client-form">
+        <div class="form-group"><label for="client-name">Name</label><input class="form-control" id="client-name" required></div>
+        <div class="form-row">
+          <div class="form-group"><label for="client-email">Email</label><input class="form-control" type="email" id="client-email"></div>
+          <div class="form-group"><label for="client-phone">Phone</label><input class="form-control" id="client-phone"></div>
+        </div>
+        <div class="form-group"><label for="client-notes">Notes</label><textarea class="form-control" id="client-notes"></textarea></div>
+        <div class="form-group" id="client-active-group">
+          <label class="checkbox-row"><input type="checkbox" id="client-active" checked> Active</label>
+        </div>
+        <div class="form-error hidden" id="client-form-error"></div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="client-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="client-save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="js/exportData.js"></script>
+<script src="js/clients.js"></script>
+</body>
+</html>

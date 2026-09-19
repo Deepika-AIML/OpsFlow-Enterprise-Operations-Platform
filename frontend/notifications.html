@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div><h1>Notifications</h1><p>Everything relevant to you - task assignments, status changes, and account updates.</p></div>
+        <button class="btn btn-outline" id="mark-all-btn">Mark all read</button>
+      </div>
+
+      <div class="page-toolbar">
+        <select class="form-control" id="read-filter" style="max-width:170px;">
+          <option value="">All notifications</option>
+          <option value="false">Unread only</option>
+          <option value="true">Read only</option>
+        </select>
+      </div>
+
+      <div class="card" style="padding:0;">
+        <div id="notif-list"></div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/notifications.js"></script>
+</body>
+</html>

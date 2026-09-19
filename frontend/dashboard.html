@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - OpsFlow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <div class="main-area">
+
+    <header class="topbar" id="topbar"></header>
+
+    <main class="content">
+
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+        <div>
+          <h1 id="welcome-title">Overview</h1>
+          <p>Live counts straight from the database.</p>
+        </div>
+      </div>
+
+
+      <!-- OPERATIONAL KPIs -->
+      <div class="stat-grid" id="operational-stats">
+        <div class="stat-card skeleton" style="height:78px;"></div>
+        <div class="stat-card skeleton" style="height:78px;"></div>
+        <div class="stat-card skeleton" style="height:78px;"></div>
+        <div class="stat-card skeleton" style="height:78px;"></div>
+      </div>
+
+
+      <!-- ADMIN USER OVERVIEW -->
+      <section id="user-overview-section" class="hidden">
+
+        <h2 style="font-size:0.95rem;margin-bottom:10px;">
+          User Overview
+        </h2>
+
+        <div class="stat-grid" id="user-stats"></div>
+
+      </section>
+
+
+      <!-- CHARTS -->
+      <div class="grid-2 dashboard-charts">
+
+        <!-- GROWTH -->
+        <div class="card chart-card">
+
+          <div class="section-card-head">
+
+            <h3>Growth Analytics</h3>
+
+            <div
+              class="chip-toggle"
+              id="growth-range-toggle"
+              role="group"
+              aria-label="Growth time range"
+            >
+
+              <button type="button" data-range="7d">
+                7D
+              </button>
+
+              <button
+                type="button"
+                data-range="30d"
+                class="active"
+              >
+                30D
+              </button>
+
+              <button type="button" data-range="6m">
+                6M
+              </button>
+
+              <button type="button" data-range="1y">
+                1Y
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas
+              id="growth-chart"
+              aria-label="Growth analytics chart"
+            ></canvas>
+
+            <div
+              id="growth-chart-empty"
+              class="chart-empty hidden"
+            >
+              No growth data available.
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- RESOURCE DISTRIBUTION -->
+        <div class="card chart-card">
+
+          <div class="section-card-head">
+
+            <h3>Resource Distribution</h3>
+
+            <div
+              class="chip-toggle"
+              id="dist-type-toggle"
+              role="group"
+              aria-label="Resource type"
+            >
+
+              <button
+                type="button"
+                data-type="projects"
+                class="active"
+              >
+                Projects
+              </button>
+
+              <button
+                type="button"
+                data-type="tasks"
+              >
+                Tasks
+              </button>
+
+              <button
+                type="button"
+                data-type="clients"
+              >
+                Clients
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="chart-wrapper distribution-wrapper">
+
+            <canvas
+              id="distribution-chart"
+              aria-label="Resource distribution chart"
+            ></canvas>
+
+            <div
+              id="distribution-chart-empty"
+              class="chart-empty hidden"
+            >
+              No distribution data available.
+            </div>
+
+          </div>
+
+          <div
+            id="distribution-breakdown"
+            class="mt-16"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RECENT ACTIVITY -->
+      <div class="card mt-16">
+
+        <div class="section-card-head">
+          <h3>Recent Activity</h3>
+        </div>
+
+        <div id="recent-activity-list"></div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<!-- COMMON JS -->
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+
+<script src="js/charts.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

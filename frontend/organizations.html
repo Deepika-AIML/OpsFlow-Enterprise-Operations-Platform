@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizations - OpsFlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-area">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-header">
+        <div><h1>Organizations</h1><p>How OpsFlow partitions data for larger deployments.</p></div>
+        <button class="btn btn-primary" id="add-org-btn">+ New Organization</button>
+      </div>
+
+      <div class="page-toolbar">
+        <input type="search" class="form-control" id="search-input" placeholder="Search organizations...">
+        <select class="form-control" id="status-filter" style="max-width:160px;">
+          <option value="">All statuses</option>
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+        <div class="toolbar-spacer"></div>
+        <button class="btn btn-outline btn-sm" id="export-csv-btn">Export CSV</button>
+        <button class="btn btn-outline btn-sm" id="export-xlsx-btn">Export Excel</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="org-table">
+          <thead><tr>
+            <th class="sortable" data-sort="name">Name</th>
+            <th>Slug</th>
+            <th class="sortable" data-sort="created_at">Users</th>
+            <th>Clients</th>
+            <th>Projects</th>
+            <th>Status</th>
+            <th style="text-align:right;">Actions</th>
+          </tr></thead>
+          <tbody id="org-tbody"></tbody>
+        </table>
+      </div>
+      <div class="pagination hidden" id="pagination"></div>
+    </main>
+  </div>
+</div>
+
+<div class="modal-overlay" id="org-modal">
+  <div class="modal">
+    <div class="modal-head"><h3 id="org-modal-title">New Organization</h3><button class="icon-btn" id="org-modal-close">&times;</button></div>
+    <div class="modal-body">
+      <form id="org-form">
+        <div class="form-group"><label for="org-name">Name</label><input class="form-control" id="org-name" required></div>
+        <div class="form-group" id="org-active-group">
+          <label class="checkbox-row"><input type="checkbox" id="org-active" checked> Active</label>
+        </div>
+        <div class="form-error hidden" id="org-form-error"></div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="org-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="org-save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="js/exportData.js"></script>
+<script src="js/organizations.js"></script>
+</body>
+</html>
