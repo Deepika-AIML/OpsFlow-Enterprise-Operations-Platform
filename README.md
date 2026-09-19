@@ -322,7 +322,4 @@ See [`CHANGELOG.md`](./CHANGELOG.md) for the full audit findings, what was
 fixed, and known limitations of this local Docker setup versus a real test
 run.
 
-## 11. Screenshots
 
-_(placeholder - add screenshots of the dashboard, tasks board, and admin
-user management here once you've run the app locally)_
