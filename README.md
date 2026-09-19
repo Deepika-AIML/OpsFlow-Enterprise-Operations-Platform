@@ -1,13 +1,9 @@
 # OpsFlow
 
-A small operations-management platform for tracking **Organizations, Clients,
-Projects and Tasks**, with backend-enforced role-based access control
-(Admin / Manager / Employee), an audit trail, in-app notifications, and a
+A operations-management platform for tracking **Organizations, Clients,
+Projects, Users and Tasks**, with backend-enforced role-based access control
+(Admin / Manager / Employee), an audit trail, and a
 role-aware dashboard.
-
-This repository is the audited-and-fixed version of an existing OpsFlow
-codebase. See [`CHANGELOG.md`](./CHANGELOG.md) for exactly what was already
-working, what was broken, and what changed.
 
 ---
 
